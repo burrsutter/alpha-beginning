@@ -20,8 +20,14 @@ We will use **Homebrew**, the package manager for macOS.
 
 # 🐍 Install Python (via Homebrew)
 
+First check to see if homebrew itself needs an update. Programs on a computer in constant need of update and many updates do not happen automatically as they do on a phone/tablet.
+
 ```bash
-brew install python
+brew update
+```
+
+```bash
+brew install python@3.12
 ```
 
 Verify:
@@ -32,7 +38,12 @@ pip3 --version
 
 ### Create a virtual environment for Python projects:
 
-Inside any project folder:
+```bash
+mkdir my_project
+cd my_project
+```
+
+Inside **my_project** folder:
 ```bash
 python3 -m venv .venv
 ```
@@ -40,6 +51,11 @@ python3 -m venv .venv
 Activate it:
 ```bash
 source .venv/bin/activate
+```
+
+Now, you no longer have to use `python3`
+```bash
+python -V
 ```
 
 When you're done coding:

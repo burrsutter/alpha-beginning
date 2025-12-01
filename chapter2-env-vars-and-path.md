@@ -46,7 +46,7 @@ echo $FAVORITE_FRUIT
 # 🏠 Permanent Env Variables
 To make variables permanent, add them to `.zshrc`.
 
-### Open your config file:
+### Open your config file in Text Editor
 ```bash
 open -e ~/.zshrc
 ```
@@ -60,6 +60,8 @@ Reload:
 ```bash
 source ~/.zshrc
 ```
+
+Note: The `source` command can also be used with another shell script to set env variables that you might want on a temporary basis. 
 
 Now the variable persists forever.
 
@@ -124,7 +126,7 @@ nano ~/bin/hello
 Paste:
 ```bash
 #!/bin/zsh
-echo "Hello, young developer!"
+echo "Hello, new developer!"
 ```
 
 ### 2. Make it executable:
@@ -148,13 +150,19 @@ hello
 #!/bin/zsh
 echo "What is your name?"
 read NAME
-echo "Hello $NAME, welcome to coding!"
+echo "Hello $NAME, welcome to scripting!"
+```
+
+```bash
+chmod +x greeter.sh
 ```
 
 Run it:
 ```bash
 ./greeter.sh
 ```
+
+
 
 ### backup script
 ```bash
@@ -175,6 +183,7 @@ Never hardcode API keys—use env vars.
 ### Add to your ~/.zshrc:
 ```bash
 export OPENAI_API_KEY="your-secret-key"
+export ANTHROPIC_API_KEY="another-secret-key"
 ```
 
 Use in Python:

@@ -11,7 +11,7 @@
 
 Beginners often think each tool shows a different set of files:
 
-- Terminal = “programming files”
+- Terminal = “files”
 - Finder = “Mac files”
 - VS Code = “coding workspace”
 
