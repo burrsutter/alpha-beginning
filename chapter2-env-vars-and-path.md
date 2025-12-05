@@ -119,8 +119,14 @@ Now any script inside `~/bin` can be run from anywhere!
 # 🧪 Create Your Own Global Command
 
 ### 1. Create a script:
+
 ```bash
-nano ~/bin/hello
+mkdir myfolder
+cd myfolder
+```
+
+```bash
+code hello.sh
 ```
 
 Paste:
@@ -131,12 +137,12 @@ echo "Hello, new developer!"
 
 ### 2. Make it executable:
 ```bash
-chmod +x ~/bin/hello
+chmod +x hello.sh
 ```
 
 ### 3. Run it:
 ```bash
-hello
+./hello.sh
 ```
 
 🎉 You created a real command on your computer!
@@ -145,7 +151,10 @@ hello
 
 # 📜 Create More Shell Scripts
 
+Create a new file called `greeter.sh`
+
 ### greeter.sh
+
 ```bash
 #!/bin/zsh
 echo "What is your name?"
@@ -162,7 +171,29 @@ Run it:
 ./greeter.sh
 ```
 
+### countdown.sh - Loop Example
 
+```bash
+#!/bin/zsh
+echo "Countdown from 5..."
+for i in {5..1}
+do
+  echo $i
+  sleep 1
+done
+echo "Blast off! 🚀"
+```
+
+```bash
+chmod +x countdown.sh
+```
+
+Run it:
+```bash
+./countdown.sh
+```
+
+This script uses a **for loop** to count down from 5 to 1, pausing 1 second between each number.
 
 ### backup script
 ```bash
