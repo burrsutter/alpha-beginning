@@ -210,7 +210,7 @@ done
 
 Stop or break with **CTRL + C**.
 
-!["while loop with echo"](images/while-1.ping)
+!["while loop with echo"](images/while-1.png)
 
 ### Another loop:
 ```bash

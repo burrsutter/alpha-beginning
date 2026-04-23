@@ -1,0 +1,38 @@
+site_name: "The AI Coder's Journey: From Zero to Chatbot"
+site_url: https://burrsutter.github.io/alpha-beginning/
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+    - scheme: slate
+
+nav:
+  - Home: README.md
+  - "Level 0 - Setup": "The AI Coder's Journey_ From Zero to Chatbot.md"
+  - Chapter 1 - Shell Basics: chapter1-shell-basics.md
+  - Chapter 2 - Environment Variables:
+    - Environment Variables and PATH: chapter2-env-vars-and-path.md
+    - Terminal, Finder, and VS Code: chapter2.1-terminal-finder-vscode.md
+    - Safe Deletion: chapter2.2-safe-deletion-rm.md
+  - Chapter 3 - Python:
+    - Introduction to Python: chapter3.0-introduction-to-python.md
+    - First Web Server: chapter3.1-first-web-server.md
+    - HTML and JavaScript: chapter3.2-intro-to-html-js.md
+  - Chapter 4 - Databases: chapter4-databases-sqlite.md
+  - Chapter 5 - Your First AI App: chapter5-your-first-ai-app.md
+  - Chapter 6 - Git:
+    - Introduction to Git: chapter6-introduction-to-git-github.md
+    - README and Markdown: chapter6.1-readme-markdown-basics.md
+  - Chapter 7 - Networking: chapter7-networking-tools.md
+
+use_directory_urls: false
