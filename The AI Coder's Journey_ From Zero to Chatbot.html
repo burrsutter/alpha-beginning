@@ -1,0 +1,1676 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://burrsutter.github.io/alpha-beginning/The%20AI%20Coder%27s%20Journey_%20From%20Zero%20to%20Chatbot.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="chapter1-shell-basics.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Level 0 - Setup - The AI Coder's Journey: From Zero to Chatbot</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-ai-coders-journey-from-zero-to-chatbot" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="The AI Coder&#39;s Journey: From Zero to Chatbot" class="md-header__button md-logo" aria-label="The AI Coder's Journey: From Zero to Chatbot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The AI Coder's Journey: From Zero to Chatbot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Level 0 - Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="The AI Coder&#39;s Journey: From Zero to Chatbot" class="md-nav__button md-logo" aria-label="The AI Coder's Journey: From Zero to Chatbot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    The AI Coder's Journey: From Zero to Chatbot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0 - Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="The%20AI%20Coder%27s%20Journey_%20From%20Zero%20to%20Chatbot.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0 - Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-0-the-setup-equipping-the-utility-belt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 0: The Setup (Equipping the Utility Belt)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 0: The Setup (Equipping the Utility Belt)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-01-summon-the-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 0.1: Summon the Terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-02-install-homebrew-the-app-store-for-coders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 0.2: Install Homebrew (The App Store for Coders)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-03-install-vs-code-your-text-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 0.3: Install VS Code (Your text editor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-browser-magic-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1: Browser Magic (JavaScript)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1: Browser Magic (JavaScript)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-11-the-inspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1.1: The Inspector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-12-your-first-spell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1.2: Your First Spell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-13-variables-the-box-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1.3: Variables (The Box Concept)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-14-the-math-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1.4: The Math Machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-the-serpent-server-side-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2: The Serpent (Server-Side Python)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2: The Serpent (Server-Side Python)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-21-wake-the-snake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 2.1: Wake the Snake
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-22-the-first-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 2.2: The First Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-the-ai-partner-claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3: The AI Partner (Claude Code)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3: The AI Partner (Claude Code)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-31-install-nodejs-claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 3.1: Install Node.js &amp; Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-32-authenticate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 3.2: Authenticate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-33-pair-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 3.3: Pair Programming
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-the-time-machine-git-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4: The Time Machine (Git &amp; GitHub)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4: The Time Machine (Git &amp; GitHub)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-41-install-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 4.1: Install Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-42-the-time-capsule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 4.2: The Time Capsule
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-5-the-web-stack-html-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 5: The Web Stack (HTML + FastAPI)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 5: The Web Stack (HTML + FastAPI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-51-install-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 5.1: Install FastAPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-52-the-backend-serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 5.2: The Backend (server.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-53-the-frontend-indexhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 5.3: The Frontend (index.html)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter1-shell-basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Shell Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - Environment Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2 - Environment Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2-env-vars-and-path.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Variables and PATH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2.1-terminal-finder-vscode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal, Finder, and VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2.2-safe-deletion-rm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe Deletion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3 - Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter3.0-introduction-to-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter3.1-first-web-server.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Web Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter3.2-intro-to-html-js.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML and JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter4-databases-sqlite.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter5-your-first-ai-app.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Your First AI App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 6 - Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter6-introduction-to-git-github.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter6.1-readme-markdown-basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README and Markdown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter7-networking-tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-0-the-setup-equipping-the-utility-belt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 0: The Setup (Equipping the Utility Belt)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 0: The Setup (Equipping the Utility Belt)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-01-summon-the-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 0.1: Summon the Terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-02-install-homebrew-the-app-store-for-coders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 0.2: Install Homebrew (The App Store for Coders)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-03-install-vs-code-your-text-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 0.3: Install VS Code (Your text editor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-browser-magic-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1: Browser Magic (JavaScript)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1: Browser Magic (JavaScript)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-11-the-inspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1.1: The Inspector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-12-your-first-spell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1.2: Your First Spell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-13-variables-the-box-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1.3: Variables (The Box Concept)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-14-the-math-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1.4: The Math Machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-the-serpent-server-side-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2: The Serpent (Server-Side Python)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2: The Serpent (Server-Side Python)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-21-wake-the-snake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 2.1: Wake the Snake
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-22-the-first-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 2.2: The First Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-the-ai-partner-claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3: The AI Partner (Claude Code)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3: The AI Partner (Claude Code)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-31-install-nodejs-claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 3.1: Install Node.js &amp; Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-32-authenticate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 3.2: Authenticate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-33-pair-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 3.3: Pair Programming
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-the-time-machine-git-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4: The Time Machine (Git &amp; GitHub)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4: The Time Machine (Git &amp; GitHub)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-41-install-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 4.1: Install Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-42-the-time-capsule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 4.2: The Time Capsule
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-5-the-web-stack-html-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 5: The Web Stack (HTML + FastAPI)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 5: The Web Stack (HTML + FastAPI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-51-install-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 5.1: Install FastAPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-52-the-backend-serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 5.2: The Backend (server.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-53-the-frontend-indexhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 5.3: The Frontend (index.html)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="the-ai-coders-journey-from-zero-to-chatbot"><strong>The AI Coder's Journey: From Zero to Chatbot</strong></h1>
+<p><strong>Student:</strong> Future Architect</p>
+<p><strong>Equipment:</strong> Mac Computer</p>
+<p><strong>Goal:</strong> Build a real AI Chatbot</p>
+<h2 id="level-0-the-setup-equipping-the-utility-belt"><strong>Level 0: The Setup (Equipping the Utility Belt)</strong></h2>
+<p>Before we write code, we need tools. We will use the <strong>Terminal</strong>, which is like the cockpit of your computer.</p>
+<h3 id="mission-01-summon-the-terminal"><strong>Mission 0.1: Summon the Terminal</strong></h3>
+<ol>
+<li>Press Command + Space to open Spotlight.  </li>
+<li>Type "Terminal" and hit Enter.  </li>
+<li>You should see a black or white window with text. This is where we command the computer.</li>
+</ol>
+<h3 id="mission-02-install-homebrew-the-app-store-for-coders"><strong>Mission 0.2: Install Homebrew (The App Store for Coders)</strong></h3>
+<p>Parent assistance recommended here.<br />
+Copy and paste this magic spell into your Terminal and hit Enter:<br />
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br />
+(Follow the instructions on screen. You may need to enter your computer password).</p>
+<h3 id="mission-03-install-vs-code-your-text-editor"><strong>Mission 0.3: Install VS Code (Your text editor)</strong></h3>
+<p>We need a place to write our code.</p>
+<ol>
+<li>In Terminal, type: brew install --cask visual-studio-code  </li>
+<li>Open VS Code from your Applications folder.</li>
+</ol>
+<h2 id="level-1-browser-magic-javascript"><strong>Level 1: Browser Magic (JavaScript)</strong></h2>
+<p>We don't need to install anything to speak the language of the web. It's already in your browser!</p>
+<h3 id="mission-11-the-inspector"><strong>Mission 1.1: The Inspector</strong></h3>
+<ol>
+<li>Open <strong>Google Chrome</strong> or <strong>Safari</strong>.  </li>
+<li>Right-click anywhere on a webpage and select <strong>Inspect</strong>.  </li>
+<li>Click the tab that says <strong>Console</strong>.</li>
+</ol>
+<h3 id="mission-12-your-first-spell"><strong>Mission 1.2: Your First Spell</strong></h3>
+<p>In the Console, type these exactly and hit Enter:</p>
+<p>alert("Warning: Genius at work!");</p>
+<p><em>Did a box pop up? You just wrote JavaScript!</em></p>
+<h3 id="mission-13-variables-the-box-concept"><strong>Mission 1.3: Variables (The Box Concept)</strong></h3>
+<p>Computers have bad memories. We use Variables to help them remember things.<br />
+Type this:<br />
+let heroName \= "Code Wizard";<br />
+alert("Hello " + heroName);</p>
+<h3 id="mission-14-the-math-machine"><strong>Mission 1.4: The Math Machine</strong></h3>
+<p>let apples \= 5;<br />
+let oranges \= 10;<br />
+alert("Total fruit: " + (apples + oranges));</p>
+<h2 id="level-2-the-serpent-server-side-python"><strong>Level 2: The Serpent (Server-Side Python)</strong></h2>
+<p>JavaScript lives in the browser, but <strong>Python</strong> lives on the server (the computer's brain).</p>
+<h3 id="mission-21-wake-the-snake"><strong>Mission 2.1: Wake the Snake</strong></h3>
+<p>In your Terminal, install Python:<br />
+brew install python<br />
+Check if it's alive:<br />
+python3 --version</p>
+<h3 id="mission-22-the-first-script"><strong>Mission 2.2: The First Script</strong></h3>
+<ol>
+<li>Create a folder on your desktop named coding_projects.  </li>
+<li>Open that folder in VS Code.  </li>
+<li>Create a new file named hello.py.  </li>
+<li>Type this inside:<br />
+   import time</li>
+</ol>
+<p>print("Initiating launch sequence...")<br />
+   time.sleep(1)<br />
+   print("3...")<br />
+   time.sleep(1)<br />
+   print("2...")<br />
+   time.sleep(1)<br />
+   print("1...")<br />
+   print("Blast off! 🚀")</p>
+<ol>
+<li>Run it: Open Terminal in VS Code (Terminal -&gt; New Terminal) and type:<br />
+   python3 hello.py</li>
+</ol>
+<h2 id="level-3-the-ai-partner-claude-code"><strong>Level 3: The AI Partner (Claude Code)</strong></h2>
+<p>Coding is harder alone. We will hire an AI assistant named <strong>Claude</strong> to live in our terminal and help us.</p>
+<h3 id="mission-31-install-nodejs-claude-code"><strong>Mission 3.1: Install Node.js &amp; Claude Code</strong></h3>
+<p>Claude Code needs a tool called Node.js.</p>
+<ol>
+<li>In Terminal: brew install node  </li>
+<li>Now install Claude: npm install -g @anthropic-ai/claude-code</li>
+</ol>
+<h3 id="mission-32-authenticate"><strong>Mission 3.2: Authenticate</strong></h3>
+<ol>
+<li>Type: claude login  </li>
+<li>Follow the instructions to connect your account.</li>
+</ol>
+<h3 id="mission-33-pair-programming"><strong>Mission 3.3: Pair Programming</strong></h3>
+<p>Let's ask Claude to explain our Python script.<br />
+In the terminal, inside your project folder:<br />
+claude "Explain what hello.py does in simple terms"</p>
+<p>Now, let's ask Claude to improve it:</p>
+<p>claude "Rewrite hello.py to count down from 10 and make it sound like a robot"</p>
+<p><em>Notice how Claude edits your file for you? This is the future of coding.</em></p>
+<h2 id="level-4-the-time-machine-git-github"><strong>Level 4: The Time Machine (Git &amp; GitHub)</strong></h2>
+<p>Imagine if you could save your game before fighting a boss. <strong>Git</strong> lets you save your code so you never lose it.</p>
+<h3 id="mission-41-install-git"><strong>Mission 4.1: Install Git</strong></h3>
+<p>brew install git</p>
+<h3 id="mission-42-the-time-capsule"><strong>Mission 4.2: The Time Capsule</strong></h3>
+<ol>
+<li>Go to <strong>GitHub.com</strong> and create an account.  </li>
+<li>Create a <strong>New Repository</strong> named my-first-bot.  </li>
+<li>
+<p>In your Terminal:<br />
+   git init<br />
+   git add .<br />
+   git commit -m "My first backup!"</p>
+</li>
+<li>
+<p>Follow the instructions on GitHub to "push" your code.</p>
+</li>
+</ol>
+<h2 id="level-5-the-web-stack-html-fastapi"><strong>Level 5: The Web Stack (HTML + FastAPI)</strong></h2>
+<p>Now we build a "Server" (Python) that talks to a "Web Page" (HTML/JS).</p>
+<h3 id="mission-51-install-fastapi"><strong>Mission 5.1: Install FastAPI</strong></h3>
+<p>FastAPI helps Python talk to the internet.<br />
+pip3 install fastapi uvicorn</p>
+<h3 id="mission-52-the-backend-serverpy"><strong>Mission 5.2: The Backend (server.py)</strong></h3>
+<p>Create a file server.py. This is our API.</p>
+<p>from fastapi import FastAPI<br />
+from fastapi.middleware.cors import CORSMiddleware</p>
+<p>app \= FastAPI()</p>
+<p># This allows our web page to talk to this server<br />
+app.add_middleware(<br />
+    CORSMiddleware,<br />
+    allow_origins=["*"],<br />
+    allow_methods=["*"],<br />
+    allow_headers=["*"],<br />
+)</p>
+<p>@app.get("/")<br />
+def home():<br />
+    return {"message": "System Online"}</p>
+<p>@app.get("/add")<br />
+def add_numbers(a: int, b: int):<br />
+    return {"result": a + b}</p>
+<p>Run it: uvicorn server:app --reload<br />
+Go to http://127.0.0.1:8000 in your browser. You should see the message!</p>
+<h3 id="mission-53-the-frontend-indexhtml"><strong>Mission 5.3: The Frontend (index.html)</strong></h3>
+<p>Create index.html. This is the user interface.</p>
+<p>\&lt;!DOCTYPE html&gt;<br />
+\&lt;html&gt;<br />
+\&lt;body&gt;<br />
+    \&lt;h1&gt;Super Calculator\&lt;/h1&gt;<br />
+    \&lt;input type="number" id="num1" placeholder="First Number"&gt;<br />
+    \&lt;input type="number" id="num2" placeholder="Second Number"&gt;<br />
+    \&lt;button onclick="calculate()"&gt;Add\&lt;/button&gt;<br />
+    \&lt;h2 id="result"&gt;\&lt;/h2&gt;</p>
+<pre><code>\&lt;script\&gt;  
+    async function calculate() {  
+        let n1 \= document.getElementById("num1").value;  
+        let n2 \= document.getElementById("num2").value;
+
+        // Talk to our Python Server  
+        let response \= await fetch(\`http://127.0.0.1:8000/add?a=${n1}\&amp;b=${n2}\`);  
+        let data \= await response.json();
+
+        document.getElementById("result").innerText \= "Result: " \+ data.result;  
+    }  
+\&lt;/script\&gt;
+</code></pre>
+<p>\&lt;/body&gt;<br />
+\&lt;/html&gt;</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.code.copy", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

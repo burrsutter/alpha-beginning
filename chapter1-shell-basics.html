@@ -1,0 +1,1119 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://burrsutter.github.io/alpha-beginning/chapter1-shell-basics.html">
+      
+      
+        <link rel="prev" href="The%20AI%20Coder%27s%20Journey_%20From%20Zero%20to%20Chatbot.html">
+      
+      
+        <link rel="next" href="chapter2-env-vars-and-path.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 1 - Shell Basics - The AI Coder's Journey: From Zero to Chatbot</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-shell-commands-101-becoming-a-terminal-wizard" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="The AI Coder&#39;s Journey: From Zero to Chatbot" class="md-header__button md-logo" aria-label="The AI Coder's Journey: From Zero to Chatbot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The AI Coder's Journey: From Zero to Chatbot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 1 - Shell Basics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="The AI Coder&#39;s Journey: From Zero to Chatbot" class="md-nav__button md-logo" aria-label="The AI Coder's Journey: From Zero to Chatbot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    The AI Coder's Journey: From Zero to Chatbot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="The%20AI%20Coder%27s%20Journey_%20From%20Zero%20to%20Chatbot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0 - Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="chapter1-shell-basics.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Shell Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - Environment Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2 - Environment Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2-env-vars-and-path.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Variables and PATH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2.1-terminal-finder-vscode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal, Finder, and VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2.2-safe-deletion-rm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe Deletion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3 - Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter3.0-introduction-to-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter3.1-first-web-server.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Web Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter3.2-intro-to-html-js.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML and JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter4-databases-sqlite.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter5-your-first-ai-app.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Your First AI App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 6 - Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter6-introduction-to-git-github.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter6.1-readme-markdown-basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README and Markdown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter7-networking-tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-1-shell-commands-101-becoming-a-terminal-wizard">🖥️ Chapter 1 — Shell Commands 101: Becoming a Terminal Wizard</h1>
+<p><strong>Level:</strong> Beginner<br />
+<strong>Theme:</strong> Talking to your computer like a pro<br />
+<strong>Tools:</strong> MacBook Air, Terminal (zsh)<br />
+<strong>Goal:</strong> Learn the core shell commands used by all developers.</p>
+<hr />
+<h1 id="level-1-the-terminal-is-your-superpower">⭐ Level 1 — “The Terminal is Your Superpower”</h1>
+<p>The Terminal lets you <em>talk</em> to your computer using text instead of clicking icons.</p>
+<p>VS Code is used in this tutorial</p>
+<p>You can install VS Code via the download or via <code>brew</code></p>
+<pre><code class="language-bash">brew install --cask visual-studio-code
+</code></pre>
+<h2 id="open-terminal">Open Terminal</h2>
+<p><code>Command-space</code> and type <code>terminal</code></p>
+<hr />
+<h1 id="command-1-pwd-where-am-i">🔍 Command #1 — <code>pwd</code> (Where am I?)</h1>
+<p><strong>Stands for:</strong> <em>Print Working Directory</em><br />
+<strong>Meaning:</strong> "Show me the exact folder I'm in."</p>
+<h3 id="try-it">Try it:</h3>
+<pre><code class="language-bash">pwd
+</code></pre>
+<p>You’ll see something like:</p>
+<pre><code>/Users/myname
+</code></pre>
+<p>This is your current location in the computer.</p>
+<p><img alt="Terminal Window" src="images/terminal-1.png" /></p>
+<hr />
+<h1 id="command-2-ls-whats-here">📁 Command #2 — <code>ls</code> (What’s here?)</h1>
+<p><strong>Meaning:</strong> "List all files and folders inside the current directory."</p>
+<h3 id="try-it_1">Try it:</h3>
+<pre><code class="language-bash">ls
+</code></pre>
+<h3 id="useful-flags">Useful flags:</h3>
+<pre><code class="language-bash">ls -l    # detailed list
+ls -a    # show hidden files
+ls -lh   # human readable sizes
+</code></pre>
+<hr />
+<h1 id="command-3-mkdir-make-a-new-folder">📦 Command #3 — <code>mkdir</code> (Make a new folder)</h1>
+<h3 id="create-a-new-folder">Create a new folder:</h3>
+<pre><code class="language-bash">mkdir my_first_folder
+</code></pre>
+<p>Check it:</p>
+<pre><code class="language-bash">ls
+</code></pre>
+<p>You should now see <code>my_first_folder</code>.</p>
+<hr />
+<h1 id="command-4-cd-change-directory">🚪 Command #4 — <code>cd</code> (Change Directory)</h1>
+<h3 id="enter-a-folder">Enter a folder:</h3>
+<pre><code class="language-bash">cd my_first_folder
+ls
+</code></pre>
+<h3 id="check-where-you-are">Check where you are:</h3>
+<pre><code class="language-bash">pwd
+</code></pre>
+<h3 id="go-back-one-directory">Go back one directory:</h3>
+<pre><code class="language-bash">cd ..
+ls
+</code></pre>
+<h3 id="go-to-your-home-directory">Go to your home directory:</h3>
+<pre><code class="language-bash">cd ~
+ls
+</code></pre>
+<h3 id="go-to-the-system-root">Go to the system root:</h3>
+<pre><code class="language-bash">cd /
+ls
+</code></pre>
+<h3 id="back-to-your-home-directory">Back to your home directory:</h3>
+<pre><code class="language-bash">cd ~
+ls
+</code></pre>
+<h3 id="open-finder">Open Finder</h3>
+<pre><code class="language-bash">open . 
+</code></pre>
+<p><img alt="Finder Window" src="images/finder-1.png" /></p>
+<p>Your screen will look different than mine since I have a lot more files/folders and customizations </p>
+<h3 id="take-a-screenshot">Take a Screenshot</h3>
+<p><code>Command-Shift-4</code> then drag to lasso a region. Screenshots show up on the Desktop </p>
+<pre><code class="language-bash">ls ~/Desktop/
+</code></pre>
+<hr />
+<h1 id="command-5-echo-make-the-computer-speak">📝 Command #5 — <code>echo</code> (Make the computer speak)</h1>
+<pre><code class="language-bash">cd ~/my_first_folder
+</code></pre>
+<h3 id="print-text">Print text:</h3>
+<pre><code class="language-bash">echo &quot;Hello world&quot;
+</code></pre>
+<h3 id="save-text-into-a-file">Save text into a file:</h3>
+<pre><code class="language-bash">echo &quot;This is my first file&quot; &gt; note.txt
+</code></pre>
+<p>View the file:</p>
+<pre><code class="language-bash">ls
+cat note.txt
+</code></pre>
+<p>Open VS Code in the curent working directory:</p>
+<pre><code class="language-bash">code .
+</code></pre>
+<p><img alt="Terminal Window" src="images/vs-code-1.png" /></p>
+<p>Delete the file:</p>
+<pre><code class="language-bash">rm note.txt
+</code></pre>
+<p>See that it is gone</p>
+<pre><code class="language-bash">ls
+</code></pre>
+<p>Create it again</p>
+<pre><code class="language-bash">echo &quot;This is my first file&quot; &gt; note.txt
+</code></pre>
+<h3 id="create-read-update-delete-crud">Create, Read, Update, Delete - CRUD</h3>
+<p>Create a file (touch or echo "stuff" &gt; file.txt)
+Read a file (cat)
+Update a file (VS Code)
+Delete a file (rm)</p>
+<hr />
+<h1 id="bonus-magic-the-while-loop">♻️ Bonus Magic — The <code>while</code> Loop</h1>
+<p>A loop repeats commands until you stop it.</p>
+<p>A basic shell script - some programming!</p>
+<h3 id="try-this-loop">Try this loop:</h3>
+<pre><code class="language-bash">while true
+do
+  echo &quot;I am learning shell&quot;
+  sleep 1
+done
+</code></pre>
+<p>Stop or break with <strong>CTRL + C</strong>.</p>
+<p><img alt="&quot;while loop with echo&quot;" src="images/while-1.png" /></p>
+<h3 id="another-loop">Another loop:</h3>
+<pre><code class="language-bash">while true
+do
+  cat note.txt
+  sleep 1
+done
+</code></pre>
+<p><img alt="&quot;while loop with cat&quot;" src="images/while-2.png" /></p>
+<hr />
+<h1 id="example-countdown-script">🚀 Example: Countdown Script</h1>
+<pre><code class="language-bash">count=5
+while [ $count -gt 0 ]
+do
+  echo &quot;Countdown: $count&quot;
+  count=$((count - 1))
+  sleep 1
+done
+echo &quot;Blast off&quot;
+</code></pre>
+<hr />
+<h1 id="mini-project-create-your-first-shell-script">🧪 Mini Project: Create Your First Shell Script</h1>
+<h3 id="1-create-a-file">1. Create a file:</h3>
+<pre><code class="language-bash">touch hello.sh
+</code></pre>
+<h3 id="2-open-it-to-edit">2. Open it to edit:</h3>
+<pre><code class="language-bash">code hello.sh
+</code></pre>
+<p>You can also use the built-in text editor for MacOS</p>
+<pre><code class="language-bash">open -e hello.sh
+</code></pre>
+<p>Paste:</p>
+<pre><code class="language-bash">echo &quot;Welcome to my first script!&quot;
+echo &quot;Today is a great day to code.&quot;
+</code></pre>
+<p><img alt="" src="images/vs-code-2.png" /></p>
+<p>OR</p>
+<p><img alt="" src="images/text-edit-1.png" /></p>
+<h3 id="3-back-in-terminal-make-it-executable">3. Back in Terminal, make it executable:</h3>
+<pre><code class="language-bash">chmod +x hello.sh
+</code></pre>
+<h3 id="4-run-it">4. Run it:</h3>
+<pre><code class="language-bash">./hello.sh
+</code></pre>
+<p>You now have a reusable script, a program that can run commands again and again within the computer.  This style scripting will work on Mac and Linux servers.  The Linux servers are the ones running most of the Internet/Web sites as well as the backends for the mobile apps that you use every day.</p>
+<hr />
+<h1 id="challenge-quests">🎯 Challenge Quests</h1>
+<h3 id="quest-1-folder-factory"><strong>Quest 1: Folder Factory</strong></h3>
+<p>Within your home directory, create a folder called <code>lab</code>, then inside it create:</p>
+<pre><code>project1
+project2
+project3
+project4
+project5
+</code></pre>
+<p>Create a file in <code>project1</code> called <code>my_file_in_project_1.txt</code></p>
+<p><img alt="Finder with project 1" src="images/finder-2.png" /></p>
+<h3 id="quest-2-mega-loop"><strong>Quest 2: Mega Loop</strong></h3>
+<p>Print your name 20 times using a <code>while</code> loop.</p>
+<h3 id="quest-3-echo-art"><strong>Quest 3: Echo Art</strong></h3>
+<p>Use <code>echo</code> to create ASCII art inside a file.</p>
+<pre><code class="language-bash">echo &quot; /\\_/\\
+( o.o )
+ &gt; ^ &lt;&quot; &gt; cat.txt
+</code></pre>
+<p>This create a file called <code>cat.txt</code></p>
+<pre><code class="language-bash">cat cat.txt
+</code></pre>
+<pre><code class="language-bash">cat &lt;&lt; &quot;EOF&quot; &gt; robot.txt
+ [::::]
+ | 0 0|
+ | -- |
+ |____|
+  /  \
+ /____\
+EOF
+</code></pre>
+<pre><code class="language-bash">cat robot.txt
+</code></pre>
+<p><img alt="" src="images/terminal-ascii-art.png" /></p>
+<h3 id="quest-4-explorer-mode"><strong>Quest 4: Explorer Mode</strong></h3>
+<p>Navigate to your Documents folder using only:</p>
+<pre><code>cd
+cd ..
+pwd
+ls
+</code></pre>
+<hr />
+<h1 id="end-of-chapter-1">🎓 End of Chapter 1</h1>
+<p>You now know the essential commands:
+- <code>pwd</code>
+- <code>ls</code>
+- <code>mkdir</code>
+- <code>cd</code>
+- <code>echo</code>
+- <code>while</code>
+- <code>cat</code>
+- Redirecting output (<code>&gt;</code>)
+- Running scripts (<code>./file.sh</code>)</p>
+<p>Next up:<br />
+👉 <strong>Chapter 2 — Environment Variables, PATH, and Shell Scripts</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.code.copy", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

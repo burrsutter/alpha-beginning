@@ -1,0 +1,1085 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://burrsutter.github.io/alpha-beginning/chapter3.1-first-web-server.html">
+      
+      
+        <link rel="prev" href="chapter3.0-introduction-to-python.html">
+      
+      
+        <link rel="next" href="chapter3.2-intro-to-html-js.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>First Web Server - The AI Coder's Journey: From Zero to Chatbot</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-3-your-first-web-server-python-node" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="The AI Coder&#39;s Journey: From Zero to Chatbot" class="md-header__button md-logo" aria-label="The AI Coder's Journey: From Zero to Chatbot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The AI Coder's Journey: From Zero to Chatbot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              First Web Server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="The AI Coder&#39;s Journey: From Zero to Chatbot" class="md-nav__button md-logo" aria-label="The AI Coder's Journey: From Zero to Chatbot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    The AI Coder's Journey: From Zero to Chatbot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="The%20AI%20Coder%27s%20Journey_%20From%20Zero%20to%20Chatbot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0 - Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter1-shell-basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - Shell Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - Environment Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2 - Environment Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2-env-vars-and-path.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Variables and PATH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2.1-terminal-finder-vscode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal, Finder, and VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter2.2-safe-deletion-rm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe Deletion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3 - Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter3.0-introduction-to-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="chapter3.1-first-web-server.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Web Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter3.2-intro-to-html-js.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML and JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter4-databases-sqlite.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter5-your-first-ai-app.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Your First AI App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 6 - Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter6-introduction-to-git-github.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter6.1-readme-markdown-basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README and Markdown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter7-networking-tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-3-your-first-web-server-python-node">🌐 Chapter 3 — Your First Web Server (Python + Node)</h1>
+<p><strong>Level:</strong> Beginner<br />
+<strong>Theme:</strong> Making your computer talk to the internet<br />
+<strong>Tools:</strong> MacBook Air, Terminal, VS Code<br />
+<strong>Goal:</strong> Build your first web server and create real API endpoints.</p>
+<hr />
+<h1 id="before-we-begin-install-python-node-with-homebrew">⭐ Before We Begin: Install Python &amp; Node with Homebrew</h1>
+<p>We will use <strong>Homebrew</strong>, the package manager for macOS.</p>
+<h3 id="install-homebrew-skip-if-already-installed">Install Homebrew (skip if already installed):</h3>
+<pre><code class="language-bash">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+</code></pre>
+<hr />
+<h1 id="install-python-via-homebrew">🐍 Install Python (via Homebrew)</h1>
+<p>First check to see if homebrew itself needs an update. Programs on a computer in constant need of update and many updates do not happen automatically as they do on a phone/tablet.</p>
+<pre><code class="language-bash">brew update
+</code></pre>
+<pre><code class="language-bash">brew install python@3.12
+</code></pre>
+<p>Verify:</p>
+<pre><code class="language-bash">python3 --version
+pip3 --version
+</code></pre>
+<h3 id="create-a-virtual-environment-for-python-projects">Create a virtual environment for Python projects:</h3>
+<pre><code class="language-bash">mkdir my_project
+cd my_project
+</code></pre>
+<p>Inside <strong>my_project</strong> folder:</p>
+<pre><code class="language-bash">python3 -m venv .venv
+</code></pre>
+<p>Activate it:</p>
+<pre><code class="language-bash">source .venv/bin/activate
+</code></pre>
+<p>Now, you no longer have to use <code>python3</code></p>
+<pre><code class="language-bash">python -V
+</code></pre>
+<p>When you're done coding:</p>
+<pre><code class="language-bash">deactivate
+</code></pre>
+<hr />
+<h1 id="install-nodejs-via-homebrew">🟦 Install Node.js (via Homebrew)</h1>
+<pre><code class="language-bash">brew install node
+</code></pre>
+<p>Verify:</p>
+<pre><code class="language-bash">node -v
+npm -v
+</code></pre>
+<hr />
+<h1 id="part-1-python-fastapi-web-server">🐍 PART 1 — Python FastAPI Web Server</h1>
+<p>FastAPI is a modern, fast web framework for building APIs.</p>
+<hr />
+<h2 id="step-1-create-your-project-folder">🧰 Step 1: Create Your Project Folder</h2>
+<pre><code class="language-bash">mkdir python-server
+cd python-server
+</code></pre>
+<hr />
+<h2 id="step-2-create-activate-virtual-environment">🧪 Step 2: Create &amp; Activate Virtual Environment</h2>
+<pre><code class="language-bash">python3 -m venv .venv
+source .venv/bin/activate
+</code></pre>
+<hr />
+<h2 id="step-3-install-fastapi-uvicorn">📦 Step 3: Install FastAPI + Uvicorn</h2>
+<pre><code class="language-bash">pip install fastapi uvicorn
+</code></pre>
+<hr />
+<h2 id="step-4-create-mainpy">📝 Step 4: Create main.py</h2>
+<pre><code class="language-bash">touch main.py
+open -e main.py
+</code></pre>
+<p>Paste this:</p>
+<pre><code class="language-python">from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get(&quot;/&quot;)
+def read_root():
+    return {&quot;message&quot;: &quot;Hello from your first Python server!&quot;}
+
+@app.get(&quot;/add&quot;)
+def add(a: int, b: int):
+    return {&quot;result&quot;: a + b}
+</code></pre>
+<hr />
+<h2 id="step-5-run-your-server">🚀 Step 5: Run Your Server</h2>
+<pre><code class="language-bash">uvicorn main:app --reload
+</code></pre>
+<p>Visit:
+- http://127.0.0.1:8000<br />
+- http://127.0.0.1:8000/add?a=3&amp;b=4  </p>
+<hr />
+<h1 id="part-2-nodejs-express-web-server">🟦 PART 2 — Node.js Express Web Server</h1>
+<p>Express is the standard framework for building APIs in Node.</p>
+<hr />
+<h2 id="step-1-create-a-project-folder">🧰 Step 1: Create a Project Folder</h2>
+<pre><code class="language-bash">mkdir node-server
+cd node-server
+</code></pre>
+<hr />
+<h2 id="step-2-initialize-a-node-project">📦 Step 2: Initialize a Node Project</h2>
+<pre><code class="language-bash">npm init -y
+</code></pre>
+<hr />
+<h2 id="step-3-install-express">📦 Step 3: Install Express</h2>
+<pre><code class="language-bash">npm install express
+</code></pre>
+<hr />
+<h2 id="step-4-create-indexjs">📝 Step 4: Create index.js</h2>
+<pre><code class="language-bash">touch index.js
+open -e index.js
+</code></pre>
+<p>Paste:</p>
+<pre><code class="language-javascript">const express = require(&quot;express&quot;);
+const app = express();
+
+app.get(&quot;/&quot;, (req, res) =&gt; {
+    res.json({ message: &quot;Hello from your first Node server!&quot; });
+});
+
+app.get(&quot;/add&quot;, (req, res) =&gt; {
+    const a = Number(req.query.a);
+    const b = Number(req.query.b);
+    res.json({ result: a + b });
+});
+
+app.listen(3000, () =&gt; {
+    console.log(&quot;Server running on http://127.0.0.1:3000&quot;);
+});
+</code></pre>
+<hr />
+<h2 id="step-5-run-your-server_1">🚀 Step 5: Run Your Server</h2>
+<pre><code class="language-bash">node index.js
+</code></pre>
+<p>Open:
+- http://127.0.0.1:3000<br />
+- http://127.0.0.1:3000/add?a=5&amp;b=7  </p>
+<hr />
+<h1 id="part-3-build-a-simple-web-page-that-talks-to-your-server">🖥️ PART 3 — Build a Simple Web Page That Talks to Your Server</h1>
+<hr />
+<h2 id="step-1-create-indexhtml">📝 Step 1: Create index.html</h2>
+<pre><code class="language-bash">touch index.html
+open -e index.html
+</code></pre>
+<p>Paste:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Calculator Client&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Calculator&lt;/h1&gt;
+
+    &lt;input id=&quot;num1&quot; type=&quot;number&quot; placeholder=&quot;Number 1&quot; /&gt;
+    &lt;input id=&quot;num2&quot; type=&quot;number&quot; placeholder=&quot;Number 2&quot; /&gt;
+    &lt;button onclick=&quot;calculate()&quot;&gt;Add Them!&lt;/button&gt;
+
+    &lt;h2 id=&quot;result&quot;&gt;&lt;/h2&gt;
+
+    &lt;script&gt;
+        async function calculate() {
+            let n1 = document.getElementById(&quot;num1&quot;).value;
+            let n2 = document.getElementById(&quot;num2&quot;).value;
+
+            let response = await fetch(`http://127.0.0.1:8000/add?a=${n1}&amp;b=${n2}`)
+                .catch(() =&gt; alert(&quot;Server not running!&quot;));
+
+            let data = await response.json();
+
+            document.getElementById(&quot;result&quot;).innerText =
+                &quot;Result: &quot; + data.result;
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr />
+<h1 id="challenge-quests">🎯 Challenge Quests</h1>
+<h3 id="quest-1-add-more-math-endpoints"><strong>Quest 1 — Add More Math Endpoints</strong></h3>
+<p>Add <code>/subtract</code>, <code>/multiply</code>, <code>/divide</code></p>
+<h3 id="quest-2-error-handling"><strong>Quest 2 — Error Handling</strong></h3>
+<p>Prevent dividing by zero.</p>
+<h3 id="quest-3-add-hellonamebob-endpoint"><strong>Quest 3 — Add /hello?name=Bob endpoint</strong></h3>
+<h3 id="quest-4-add-squaren7"><strong>Quest 4 — Add /square?n=7</strong></h3>
+<h3 id="quest-5-build-a-math-helper-frontend"><strong>Quest 5 — Build a “Math Helper” Frontend</strong></h3>
+<hr />
+<h1 id="end-of-chapter-3">🎓 End of Chapter 3</h1>
+<p>You now know how to:
+- Install Python &amp; Node via Homebrew<br />
+- Use Python virtual environments<br />
+- Build a Python FastAPI server<br />
+- Build a Node Express server<br />
+- Return JSON responses<br />
+- Build a webpage that calls your server  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.code.copy", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
